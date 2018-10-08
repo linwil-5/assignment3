@@ -2,8 +2,10 @@ package ltu;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Test;
 import java.text.DateFormat;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -21,6 +23,16 @@ public class PaymentTest
 {
 	ICalendar calend = CalendarFactory.getCalendar();
 
+	public static Date parseDate(String date) {
+		try 
+		{
+			return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+		} 
+		catch(Exception e)
+		{
+			return null;
+		}
+	}
 	
 	@Test	// [ID: 101] The student must be at least 20 years old to receive subsidiary and student loans.
 	public void test_Under_20_Years_Old() throws IOException //ID: 101
@@ -166,9 +178,11 @@ public class PaymentTest
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
 	public void test_if_loan_or_subsidiary_paid_saturday() throws IOException // [ID: 506]
 	{
-		Calendar calend = Calendar.getInstance();
-		calend.set(2016, 1, 3);
-		ICalendar cal = calend.getTime();
+		Date myDate = parseDate("2016-01-2");
+		
+		System.out.println("Your lucky day is: " + myDate);
+		
+		
 	}
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
