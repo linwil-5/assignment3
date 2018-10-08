@@ -49,6 +49,7 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);
 
 	
+<<<<<<< HEAD
 		int Expected_Subsidary = (2816);
 		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19690101-0000", 0, 100, 100));
 	}
@@ -61,6 +62,10 @@ public class PaymentTest
 		
 		int Expected_Full_Loan = (7088 + 2816);
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
+=======
+		int Expected_Full_Subsidary = (2816);
+		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount("19690101-0000", 0, 100, 100));
+>>>>>>> 2f6e6e664bd4cd84011463511b274a9ff2951cca
 	}
 	
 	@Test	// [ID: 201] The student must be studying at least half time to receive any subsidiary.
@@ -68,7 +73,7 @@ public class PaymentTest
 	{
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Subsidary = (2816);
+		int Expected_Subsidary = (3564 + 1396);
 		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 50, 100));
 	}
 	
@@ -78,8 +83,8 @@ public class PaymentTest
 	{
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Half_Subsidary = (2816);
-		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 20, 100));
+		int Expected_Half_Subsidary = (1396);
+		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 70, 100));
 	}
 
 	
@@ -88,7 +93,7 @@ public class PaymentTest
 	{
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Full_Subsidary = (2816);
+		int Expected_Full_Subsidary = (7088 + 2816);
 		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
 
@@ -96,6 +101,7 @@ public class PaymentTest
 	@Test	//	year in order to receive any subsidiary or student loans.
 	public void test_maximum_income_per_year() throws IOException //ID: 301
 	{
+<<<<<<< HEAD
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
@@ -109,10 +115,26 @@ public class PaymentTest
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
+=======
+		PaymentImpl payment = new PaymentImpl(calend);			
+		
+		int Expected_Full_Money = (7088 + 2816);
+		assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 85813, 100, 100));
+	}
+	
+			// [ID: 302] A student who is studying less than full time is allowed to earn a maximum of 128 722SEK per 
+	@Test	//year in order to receive any subsidiary or student loans.
+	public void test_if_studying_less_than_full_time() throws IOException //ID: 302
+	{
+		PaymentImpl payment = new PaymentImpl(calend);			
+		
+>>>>>>> 2f6e6e664bd4cd84011463511b274a9ff2951cca
 		int Expected_Less_Than_Full_Money = (3564 + 1396);
 		assertEquals(Expected_Less_Than_Full_Money, payment.getMonthlyAmount("19951124-0000", 128722, 50, 100));
 	}
+	
 
+<<<<<<< HEAD
 			// [ID: 401] A student must have completed at least 50% of previous studies in order to receive any 
 	@Test	// subsidiary or student loans.
 	public void test_if_student_has_half_completion() throws IOException //ID: 401
@@ -124,3 +146,6 @@ public class PaymentTest
 		assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 0, 100, 50));
 	}
 }
+=======
+}
+>>>>>>> 2f6e6e664bd4cd84011463511b274a9ff2951cca
