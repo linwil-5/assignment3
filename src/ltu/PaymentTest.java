@@ -111,32 +111,49 @@ public class PaymentTest
 		assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 0, 100, 50));
 	}
 	
-			// [ID: 501] When and amount paid requirements Full time students are entitled to:
+			// [ID: 501] Full time students are entitled to:
 	@Test	// Student loan: 7088 SEK / month
-	public void test_if_full_time_gets_full_loan()
+	public void test_if_full_time_gets_full_loan() throws IOException  // [ID: 501]
 	{
-		fail("Not done yet");
+		PaymentImpl payment = new PaymentImpl(calend);	
+		
+		int Expected_Full_Loan = (7088);
+		int student_Full_Subsidiary = (2816);
+		assertEquals(Expected_Full_Loan, (payment.getMonthlyAmount("19951124-0000", 0, 100, 100)-student_Full_Subsidiary));
+
 	}
 	
-			// [ID: 502] When and amount paid requirements Full time students are entitled to:
+			// [ID: 502] Full time students are entitled to:
 	@Test	// Subsidiary: 2816 SEK / month
-	public void test_if_full_time_gets_full_subsidiary()
+	public void test_if_full_time_gets_full_subsidiary() throws IOException  // [ID: 502]
 	{
-		fail("Not done yet");
+		PaymentImpl payment = new PaymentImpl(calend);	
+		
+		int Expected_Full_Subsidiary = (2816);
+		int student_Full_Loan = (7088);
+		assertEquals(Expected_Full_Subsidiary, (payment.getMonthlyAmount("19951124-0000", 0, 100, 100)-student_Full_Loan));
 	}
 	
-			// [ID: 503] When and amount paid requirements Less than full time students are entitled to:
+			// [ID: 503] Less than full time students are entitled to:
 	@Test	// Student loan: 3564 SEK / month
-	public void test_if__less_than_full_time_gets_less_than_full_loan()
+	public void test_if_less_than_full_time_gets_less_than_full_loan() throws IOException // [ID: 503]
 	{
-		fail("Not done yet");
+		PaymentImpl payment = new PaymentImpl(calend);	
+		
+		int Expected_Half_Loan = (3564);
+		int student_Full_Subsidiary = (1396);
+		assertEquals(Expected_Half_Loan, (payment.getMonthlyAmount("19951124-0000", 0, 99, 100)-student_Full_Subsidiary));
 	}
 	
 			// [ID: 504] When and amount paid requirements Less than full time students are entitled to:
 	@Test	// Subsidiary: 1396 SEK / month
-	public void test_if__less_than_full_time_gets_less_than_full_subsidiary()
+	public void test_if_less_than_full_time_gets_less_than_full_subsidiary() throws IOException // [ID: 504]
 	{
-		fail("Not done yet");
+		PaymentImpl payment = new PaymentImpl(calend);	
+		
+		int Expected_Half_Subsidiary = (1396);
+		int student_Full_Loan = (3564);
+		assertEquals(Expected_Half_Subsidiary, (payment.getMonthlyAmount("19951124-0000", 0, 99, 100)-student_Full_Loan));
 	}
 
 }
