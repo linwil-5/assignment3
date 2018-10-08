@@ -62,7 +62,6 @@ public class PaymentTest
 		int Expected_Full_Loan = (7088 + 2816);
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
-<<<<<<< HEAD
 	
 	@Test	// [ID: 201] The student must be studying at least half time to receive any subsidiary.
 	public void test_studies_half_time() throws IOException //ID: 201
