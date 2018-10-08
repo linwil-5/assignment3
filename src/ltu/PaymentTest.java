@@ -156,4 +156,29 @@ public class PaymentTest
 		assertEquals(Expected_Half_Subsidiary, (payment.getMonthlyAmount("19951124-0000", 0, 99, 100)-student_Full_Loan));
 	}
 
+	@Test // [ID: 505] A person who is entitled to receive a student loan will always receive the full amount.	
+	public void test_if_entitled_student_receives_full_amount() throws IOException // [ID: 505]
+	{
+		fail("not done yet");
+	}
+	
+	
+	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
+	public void test_if_loan_or_subsidiary_paid_saturday() throws IOException // [ID: 506]
+	{
+		Calendar calend = Calendar.getInstance();
+		Calendar calend = Calendar.getInstance();
+		calend.set(2016, 1, 3);
+		ICalendar cal = calend.getTime();
+		
+	
+	}
+	
+	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
+	public void test_if_loan_or_subsidiary_paid_sunday() throws IOException // [ID: 506]
+	{
+		fail("not done yet");
+	}
+	
+	
 }
