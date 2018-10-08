@@ -23,15 +23,11 @@ public class PaymentTest
     @Test
     public void test0MaximumIncome100()	throws IOException	//ID: 301
     {
-		
 		ICalendar calend = CalendarFactory.getCalendar();
-
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		long monthlyGet;
-		int shouldBe = (7088 + 2816); 
+		int Expected_Full_Loan = (7088 + 2816); 
 		
-		monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 0, 100, 100);
-		assertEquals(monthlyGet, shouldBe);
+		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("1995112400000", 0, 100, 100));
 	}
 }
