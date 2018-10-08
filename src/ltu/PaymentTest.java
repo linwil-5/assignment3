@@ -49,8 +49,8 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);
 
 	
-		int Expected_Subsidary = (2816);
-		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19690101-0000", 0, 100, 100));
+		int Expected_Full_Subsidary = (2816);
+		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount("19690101-0000", 0, 100, 100));
 	}
 
 	
@@ -59,7 +59,7 @@ public class PaymentTest
 	{
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Subsidary = (2816);
+		int Expected_Subsidary = (3564 + 1396);
 		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 50, 100));
 	}
 	
@@ -69,8 +69,8 @@ public class PaymentTest
 	{
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Half_Subsidary = (2816/2);
-		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 20, 100));
+		int Expected_Half_Subsidary = (1396);
+		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 70, 100));
 	}
 
 	
@@ -79,7 +79,7 @@ public class PaymentTest
 	{
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Full_Subsidary = (2816);
+		int Expected_Full_Subsidary = (7088 + 2816);
 		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
 	
