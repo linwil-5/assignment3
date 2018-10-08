@@ -80,7 +80,8 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Half_Subsidary = (1396);
-		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 70, 100));
+		int student_half_loan = (3564);
+		assertEquals(Expected_Half_Subsidary, (payment.getMonthlyAmount("19951124-0000", 0, 70, 100) - student_half_loan));
 	}
 
 	
