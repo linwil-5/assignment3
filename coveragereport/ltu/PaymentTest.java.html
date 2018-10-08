@@ -19,7 +19,9 @@ import ltu.CalendarFactory;
 
 <span class="fc" id="L20">public class PaymentTest</span>
 {
+<span class="fc" id="L22">	ICalendar calend = CalendarFactory.getCalendar();</span>
 
+<<<<<<< HEAD
 
 	@Test	// [ID: 101] The student must be at least 20 years old to receive subsidiary and student loans.
 	public void test_Under_20_Years_Old() throws IOException //ID: 101
@@ -38,6 +40,25 @@ import ltu.CalendarFactory;
 <span class="fc" id="L38">		ICalendar calend = CalendarFactory.getCalendar();</span>
 <span class="fc" id="L39">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 		
+=======
+	
+	@Test	// [ID: 101] The student must be at least 20 years old to receive subsidiary and student loans.
+	public void test_Under_20_Years_Old() throws IOException //ID: 101
+	{		
+<span class="fc" id="L28">		PaymentImpl payment = new PaymentImpl(calend);</span>
+
+<span class="fc" id="L30">		int Expected_Zero_Loan = (0);</span>
+<span class="nc" id="L31">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;19980101-0000&quot;, 0, 100, 100));</span>
+<span class="nc" id="L32">	}</span>
+	
+	
+	@Test	// [ID: 102] The student may receive subsidiary until the year they turn 56.
+	public void test_56_Years_Old() throws IOException //ID: 102
+	{		
+<span class="fc" id="L38">		PaymentImpl payment = new PaymentImpl(calend);</span>
+
+			
+>>>>>>> d6680f287aae4d0a9a0776f919cf482402050199
 <span class="fc" id="L41">		int Expected_Zero = (0);</span>
 <span class="fc" id="L42">		assertEquals(Expected_Zero, payment.getMonthlyAmount(&quot;19600101-0000&quot;, 0, 100, 100));</span>
 <span class="fc" id="L43">	}</span>
@@ -45,14 +66,22 @@ import ltu.CalendarFactory;
 
 	@Test	// [ID: 103] The student may not receive any student loans from the year they turn 47.
 	public void test_47_Years_Old() throws IOException //ID: 103
+<<<<<<< HEAD
 	{
 <span class="fc" id="L49">		ICalendar calend = CalendarFactory.getCalendar();</span>
 <span class="fc" id="L50">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 
+=======
+	{	
+<span class="fc" id="L49">		PaymentImpl payment = new PaymentImpl(calend);</span>
+
+	
+>>>>>>> d6680f287aae4d0a9a0776f919cf482402050199
 <span class="fc" id="L52">		int Expected_Subsidary = (2816);</span>
 <span class="fc" id="L53">		assertEquals(Expected_Subsidary, payment.getMonthlyAmount(&quot;19690101-0000&quot;, 0, 100, 100));</span>
 <span class="fc" id="L54">	}</span>
 
+<<<<<<< HEAD
 	@Test	// Test if person with 0 income can get full load if all other is correct
     public void test_zero_income()	throws IOException	//ID: 301
     {
@@ -62,10 +91,13 @@ import ltu.CalendarFactory;
 <span class="fc" id="L62">		int Expected_Full_Loan = (7088 + 2816);</span>
 <span class="fc" id="L63">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 100, 100));</span>
 <span class="fc" id="L64">	}</span>
+=======
+>>>>>>> d6680f287aae4d0a9a0776f919cf482402050199
 	
 	@Test	// [ID: 201] The student must be studying at least half time to receive any subsidiary.
 	public void test_studies_half_time() throws IOException //ID: 201
 	{
+<<<<<<< HEAD
 <span class="fc" id="L69">		ICalendar calend = CalendarFactory.getCalendar();</span>
 <span class="fc" id="L70">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 		
@@ -82,6 +114,43 @@ import ltu.CalendarFactory;
 <span class="fc" id="L82">		int Expected_Half_Subsidary = (2816);</span>
 <span class="nc" id="L83">		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 20, 100));</span>
 <span class="nc" id="L84">	}</span>
+=======
+<span class="fc" id="L60">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+		
+<span class="fc" id="L62">		int Expected_Subsidary = (2816);</span>
+<span class="nc" id="L63">		assertEquals(Expected_Subsidary, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 50, 100));</span>
+<span class="nc" id="L64">	}</span>
+	
+	
+	@Test	// [ID: 202] A student studying less than full time is entitled to 50% subsidiary.
+	public void test_studies_less_than_full_time() throws IOException //ID: 202
+	{
+<span class="fc" id="L70">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+		
+<span class="fc" id="L72">		int Expected_Half_Subsidary = (2816/2);</span>
+<span class="nc" id="L73">		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 20, 100));</span>
+<span class="nc" id="L74">	}</span>
+
+	
+	@Test	// [ID: 203] A student studying full time is entitled to 100% subsidiary.
+	public void test_studies_full_time() throws IOException //ID: 203
+	{
+<span class="fc" id="L80">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+		
+<span class="fc" id="L82">		int Expected_Full_Subsidary = (2816);</span>
+<span class="nc" id="L83">		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 100, 100));</span>
+<span class="nc" id="L84">	}</span>
+	
+	
+	@Test	//ID: [301] Test if person with 0 income can get full load if all other is correct
+    public void test_zero_income()	throws IOException	//ID: 301
+    {	
+<span class="fc" id="L90">		PaymentImpl payment = new PaymentImpl(calend);</span>
+
+<span class="fc" id="L92">		int Expected_Full_Loan = (7088 + 2816);</span>
+<span class="fc" id="L93">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L94">	}</span>
+>>>>>>> d6680f287aae4d0a9a0776f919cf482402050199
 
 	@Test	// [ID: 203] A student studying full time is entitled to 100% subsidiary.
 	public void test_studies_full_time() throws IOException //ID: 203
