@@ -92,6 +92,4 @@ public class PaymentTest
 		int Expected_Full_Subsidary = (2816);
 		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
-=======
->>>>>>> be8b4fe2ca92182d5d48177d777640b19f09da0c
 }
