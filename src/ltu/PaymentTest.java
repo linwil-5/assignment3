@@ -27,6 +27,7 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Loan = (7088 + 2816);
+<<<<<<< HEAD
 		// The student is under 47 years of age and has 100% study and completion rate and 0 income.
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
@@ -52,6 +53,13 @@ public class PaymentTest
 	}
 
 	@Test	// The student may not receive any student loans from the year they turn 47.
+=======
+		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("1995112400000", 0, 100, 100));
+	}
+
+
+	@Test
+>>>>>>> 05cb6490f6d520c5adfb375f5e44c5d75bd35be8
 	public void testIf47YearsOld() throws IOException //ID: 103
 	{
 		ICalendar calend = CalendarFactory.getCalendar();
