@@ -28,7 +28,7 @@ import ltu.CalendarFactory;
 		
 <span class="fc" id="L29">		int Expected_Full_Loan = (7088 + 2816);</span>
 		// The student is under 47 years of age and has 100% study and completion rate and 0 income.
-<span class="fc" id="L31">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;1995112400000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L31">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 100, 100));</span>
 <span class="fc" id="L32">	}</span>
 
 	@Test	// [ID: 101] The student must be at least 20 years old to receive subsidiary and student loans.
@@ -38,8 +38,8 @@ import ltu.CalendarFactory;
 <span class="fc" id="L38">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 		
 <span class="fc" id="L40">		int Expected_Zero_Loan = (0);</span>
-<span class="nc" id="L41">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1997010100000&quot;, 0, 100, 100));</span>
-<span class="nc" id="L42">	}</span>
+<span class="fc" id="L41">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;19990101-0000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L42">	}</span>
 
 	@Test	// [ID: 102] The student may receive subsidiary until the year they turn 56.
 	public void testIf56YearsOld() throws IOException //ID: 102
@@ -48,7 +48,7 @@ import ltu.CalendarFactory;
 <span class="fc" id="L48">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 		
 <span class="fc" id="L50">		int Expected_Zero_Loan = (0);</span>
-<span class="fc" id="L51">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1960010100000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L51">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;19600101-0000&quot;, 0, 100, 100));</span>
 <span class="fc" id="L52">	}</span>
 
 	@Test	// The student may not receive any student loans from the year they turn 47.
@@ -59,7 +59,7 @@ import ltu.CalendarFactory;
 		
 <span class="fc" id="L60">		int Expected_Zero_Loan = (2816);</span>
 		// The student is 47 years of age and has 100% study and completion rate and 0 income.
-<span class="fc" id="L62">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1969010100000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L62">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;19690101-0000&quot;, 0, 100, 100));</span>
 <span class="fc" id="L63">	}</span>
 
 }
