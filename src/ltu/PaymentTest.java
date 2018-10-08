@@ -27,12 +27,7 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Zero_Loan = (0);
-<<<<<<< HEAD
 		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount("19980101-0000", 0, 100, 100));
-=======
-		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount("19990101-0000", 0, 100, 100));
-
->>>>>>> 0ac73d6e0496556779304724dbdd3854beb6b525
 	}
 	
 	@Test	// [ID: 102] The student may receive subsidiary until the year they turn 56.
@@ -45,29 +40,13 @@ public class PaymentTest
 		assertEquals(Expected_Zero, payment.getMonthlyAmount("19600101-0000", 0, 100, 100));
 	}
 
-<<<<<<< HEAD
 	@Test	// [ID: 103] The student may not receive any student loans from the year they turn 47.
 	public void test_47_Years_Old() throws IOException //ID: 103
-=======
-
-	@Test	// The student may not receive any student loans from the year they turn 47.
-	public void testIf47YearsOld() throws IOException //ID: 103
->>>>>>> 0ac73d6e0496556779304724dbdd3854beb6b525
 	{
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-<<<<<<< HEAD
-<<<<<<< HEAD
 		int Expected_Subsidary = (2816);
-=======
-		
-		int Expected_Subsidary = (2816);
-		// The student is 47 years of age and has 100% study and completion rate and 0 income.
->>>>>>> 0ac73d6e0496556779304724dbdd3854beb6b525
-=======
-		int Expected_Subsidary = (2816);
->>>>>>> bdb5133219fb14c4cec4a3a2db3678e7cd149638
 		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19690101-0000", 0, 100, 100));
 	}
 
@@ -83,5 +62,6 @@ public class PaymentTest
 <<<<<<< HEAD
 =======
 	
+>>>>>>> bdb5133219fb14c4cec4a3a2db3678e7cd149638
 
 }
