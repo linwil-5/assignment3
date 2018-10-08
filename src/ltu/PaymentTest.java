@@ -1,7 +1,6 @@
 package ltu;
 
-import static ltu.CalendarFactory.getCalendar;
-import static java.lang.Integer.parseInt;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import java.text.DateFormat;
@@ -17,36 +16,313 @@ import ltu.IPayment;
 import ltu.ICalendar;
 import ltu.CalendarImpl;
 import ltu.CalendarFactory;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 
 public class PaymentTest
 {
-	// 			Instances Created here 			//
-	ICalendar calend = CalendarFactory.getCalendar();
-	
+
     @Test
-    public void testSilly()
+    public void test0MaximumIncome100()		//ID: 301
     {
+	ICalendar calend = CalendarFactory.getCalendar();	
+	long monthlyGet;
+	int shouldBe = (7088 + 2816); 
 		
-        assertEquals(1, 1);
-    }
+	try{
 	
+		PaymentImpl payment = new PaymentImpl(calend);	
+		monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 0, 100, 100);
+        	assertEquals(monthlyGet, shouldBe);
+	}
+	catch(Exception e){
+		StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+    		printWriter.flush();
+    		String stackTrace = writer.toString();
+    		fail(stackTrace);
+	}
+
+
+    }
+
+
     @Test
-    public void test_if_below_max_income_for_fullLoanStudent() //ID: 301
+    public void testMaximumIncome100()		//ID: 301
     {
-		int excpected = (7088 + 2816); 
+	ICalendar calend = CalendarFactory.getCalendar();	
+	long monthlyGet;
+	int shouldBe = (7088 + 2816); 
 		
-		assertEquals(1, 1);
-    }
+	try{
 	
-	@Test
-    public void test_if_below_max_income_for_halfLoanStudent() //ID: 301
+		PaymentImpl payment = new PaymentImpl(calend);	
+		monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 85813, 100, 100);
+        	assertEquals(monthlyGet, shouldBe);
+	}
+	catch(Exception e){
+		StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+    		printWriter.flush();
+    		String stackTrace = writer.toString();
+    		fail(stackTrace);
+	}
+
+
+    }
+
+    @Test
+	public void testBelowMaxIncome100()	//ID: 301
+	{
+		ICalendar calend = CalendarFactory.getCalendar();	
+		long monthlyGet;
+		int shouldBe = (7088 + 2816); 
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(calend);	
+			monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 85812, 100, 100);
+        	assertEquals(monthlyGet, shouldBe);
+		}
+		catch(Exception e)
+		{
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+   			fail(stackTrace);
+		}
+
+
+    }
+
+
+    @Test
+	public void testAboveMaxIncome100()	//ID: 301
+	{
+		ICalendar calend = CalendarFactory.getCalendar();	
+		long monthlyGet;
+		int shouldBe = (0); 
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(calend);	
+			monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 85814, 100, 100);
+        	assertEquals(monthlyGet, shouldBe);
+		}
+		catch(Exception e)
+		{
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+   			fail(stackTrace);
+		}
+
+
+    }
+
+    @Test
+	public void testNegativeIncome100()	//ID: 301
+	{
+		ICalendar calend = CalendarFactory.getCalendar();	
+		long monthlyGet;
+		int shouldBe = (7088 + 2816); 
+		boolean shouldFail = true;
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(calend);	
+			monthlyGet = (long) payment.getMonthlyAmount("1995112400000", -128722, 50, 100);
+   			fail("no exception thrown");
+		}
+		catch(Exception e)
+		{
+        	assertTrue(shouldFail);
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+		}
+
+
+    }
+
+
+    @Test
+    public void test0MaximumIncome50()		//ID: 302
     {
-		int excpected = (7088 + 2816); 
+	ICalendar calend = CalendarFactory.getCalendar();	
+	long monthlyGet;
+	int shouldBe = (3564 + 1396); 
 		
-		assertEquals(1, 1);
-    }
+	try{
 	
+		PaymentImpl payment = new PaymentImpl(calend);	
+		monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 0, 50, 100);
+        	assertEquals(monthlyGet, shouldBe);
+	}
+	catch(Exception e){
+		StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+    		printWriter.flush();
+    		String stackTrace = writer.toString();
+    		fail(stackTrace);
+	}
+
+
+    }
+
+
+    @Test
+	public void testMaxIncome50()	//ID: 302
+	{
+		ICalendar calend = CalendarFactory.getCalendar();	
+		long monthlyGet;
+		int shouldBe = (3564 + 1396); 
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(calend);	
+			monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 128722, 50, 100);
+        	assertEquals(monthlyGet, shouldBe);
+		}
+		catch(Exception e)
+		{
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+   			fail(stackTrace);
+		}
+
+
+    }
+
+    @Test
+	public void testBelowMaxIncome50()	//ID: 302
+	{
+		ICalendar calend = CalendarFactory.getCalendar();	
+		long monthlyGet;
+		int shouldBe = (3564 + 1396); 
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(calend);	
+			monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 128721, 50, 100);
+        	assertEquals(monthlyGet, shouldBe);
+		}
+		catch(Exception e)
+		{
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+   			fail(stackTrace);
+		}
+
+
+    }
+
+
+    @Test
+	public void testAboveMaxIncome50()	//ID: 302
+	{
+		ICalendar calend = CalendarFactory.getCalendar();	
+		long monthlyGet;
+		int shouldBe = (0); 
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(calend);	
+			monthlyGet = (long) payment.getMonthlyAmount("1995112400000", 128723, 50, 100);
+        	assertEquals(monthlyGet, shouldBe);
+		}
+		catch(Exception e)
+		{
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+   			fail(stackTrace);
+		}
+
+
+    }
+
+    @Test
+	public void testNegativeIncome50()	//ID: 302
+	{
+		ICalendar calend = CalendarFactory.getCalendar();	
+		long monthlyGet;
+		int shouldBe = (3564 + 1396); 
+		boolean shouldFail = true;
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(calend);	
+			monthlyGet = (long) payment.getMonthlyAmount("1995112400000", -128723, 50, 100);
+   			fail("no exception thrown");
+		}
+		catch(Exception e)
+		{
+        	assertTrue(shouldFail);
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+		}
+
+
+    }
+
+    @Test
+	public void testsunday()	//ID: 302
+	{
+		//ICalendar calend = CalendarFactory.getCalendar();
+		Calendar calend = Calendar.getInstance();
+		//Calendar tempCal = (Calendar) calend; 
+		calend.set(2016, 1, 3);
+		ICalendar cal = calend.getTime();
+		long monthlyGet;
+		int shouldBe = (3564 + 1396); 
+		boolean shouldFail = true;
+		DateFormat format = new SimpleDateFormat("yyyymmdd");
+		itsSondag = format.format(calend.getTime());
+
+	
+		try
+		{
+			PaymentImpl payment = new PaymentImpl(cal);
+
+			if(payment.getNextPaymentDay() == itsSondag)
+			{
+				fail("det är söndag");
+			}
+
+		}
+		catch(Exception e)
+		{
+        	assertTrue(shouldFail);
+			StringWriter writer = new StringWriter();
+    		PrintWriter printWriter = new PrintWriter( writer );
+    		e.printStackTrace( printWriter );
+   			printWriter.flush();
+   			String stackTrace = writer.toString();
+		}
+
+
+    }
+
+
+
+
 }
