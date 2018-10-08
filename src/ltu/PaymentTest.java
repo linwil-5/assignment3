@@ -284,45 +284,4 @@ public class PaymentTest
 
     }
 
-    @Test
-	public void testsunday()	//ID: 302
-	{
-		//ICalendar calend = CalendarFactory.getCalendar();
-		Calendar calend = Calendar.getInstance();
-		//Calendar tempCal = (Calendar) calend; 
-		calend.set(2016, 1, 3);
-		ICalendar cal = calend.getTime();
-		long monthlyGet;
-		int shouldBe = (3564 + 1396); 
-		boolean shouldFail = true;
-		DateFormat format = new SimpleDateFormat("yyyymmdd");
-		itsSondag = format.format(calend.getTime());
-
-	
-		try
-		{
-			PaymentImpl payment = new PaymentImpl(cal);
-
-			if(payment.getNextPaymentDay() == itsSondag)
-			{
-				fail("det är söndag");
-			}
-
-		}
-		catch(Exception e)
-		{
-        	assertTrue(shouldFail);
-			StringWriter writer = new StringWriter();
-    		PrintWriter printWriter = new PrintWriter( writer );
-    		e.printStackTrace( printWriter );
-   			printWriter.flush();
-   			String stackTrace = writer.toString();
-		}
-
-
-    }
-
-
-
-
 }
