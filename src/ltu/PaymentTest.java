@@ -27,20 +27,19 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Loan = (7088 + 2816);
-		// The student is under 47 years of age and has 100% study rate and completion rate.
+		// The student is under 47 years of age and has 100% study and completion rate and 0 income.
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("1995112400000", 0, 100, 100));
 
 	}
 
 	@Test
-	public void testIf47YearOld() throws IOException //ID: 103
+	public void testIf47YearsOld() throws IOException //ID: 103
 	{
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Full_Loan = (7088 + 2816);
-		// The student is 47 years of age and has 100% study rate and completion rate.
-		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("1947112400000", 0, 100, 100));
+		int Expected_Zero_Loan = (2816);
+		// The student is 47 years of age and has 100% study and completion rate and 0 income.
+		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount("1971010100000", 0, 100, 100));
 	}
-
 }

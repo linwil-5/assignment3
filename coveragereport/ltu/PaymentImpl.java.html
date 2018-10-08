@@ -87,9 +87,9 @@ public class PaymentImpl implements IPayment
 
     private int getAge(String personId)
     {
-<span class="pc bpc" id="L90" title="2 of 4 branches missed.">        if (personId == null || personId.length() != 13)</span>
+<span class="pc bpc" id="L90" title="1 of 4 branches missed.">        if (personId == null || personId.length() != 13)</span>
         {
-<span class="nc" id="L92">            throw new IllegalArgumentException(&quot;Invalid personId: &quot; + personId);</span>
+<span class="fc" id="L92">            throw new IllegalArgumentException(&quot;Invalid personId: &quot; + personId);</span>
         }
 <span class="fc" id="L94">        int personYear = parseInt(personId.substring(0, 4));</span>
 <span class="fc" id="L95">        int paymentYear = parseInt(new SimpleDateFormat(&quot;yyyy&quot;).format(calendar.getDate()));</span>
@@ -99,9 +99,9 @@ public class PaymentImpl implements IPayment
 
     private int getLoan(int age, int income, int studyRate, int completionRatio)
     {
-<span class="pc bpc" id="L102" title="4 of 8 branches missed.">        if (studyRate &lt; 50 || age &lt; 20 || age &gt;= 47 || completionRatio &lt; 50)</span>
+<span class="pc bpc" id="L102" title="3 of 8 branches missed.">        if (studyRate &lt; 50 || age &lt; 20 || age &gt;= 47 || completionRatio &lt; 50)</span>
         {
-<span class="nc" id="L104">            return ZERO_LOAN;</span>
+<span class="fc" id="L104">            return ZERO_LOAN;</span>
         }
 <span class="pc bpc" id="L106" title="2 of 4 branches missed.">        if (studyRate &gt;= 100 &amp;&amp; income &gt; FULLTIME_INCOME)</span>
         {

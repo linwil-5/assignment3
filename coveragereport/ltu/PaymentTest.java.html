@@ -27,9 +27,20 @@ import ltu.CalendarFactory;
 <span class="fc" id="L27">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 		
 <span class="fc" id="L29">		int Expected_Full_Loan = (7088 + 2816);</span>
-		
+		// The student is under 47 years of age and has 100% study and completion rate and 0 income.
 <span class="fc" id="L31">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;1995112400000&quot;, 0, 100, 100));</span>
 
 <span class="fc" id="L33">	}</span>
+
+	@Test
+	public void testIf47YearsOld() throws IOException //ID: 103
+	{
+<span class="fc" id="L38">		ICalendar calend = CalendarFactory.getCalendar();</span>
+<span class="fc" id="L39">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+		
+<span class="fc" id="L41">		int Expected_Zero_Loan = (2816);</span>
+		// The student is 47 years of age and has 100% study and completion rate and 0 income.
+<span class="fc" id="L43">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1971010100000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L44">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
