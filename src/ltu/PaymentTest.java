@@ -44,6 +44,4 @@ public class PaymentTest
 		// The student is 47 years of age and has 100% study and completion rate and 0 income.
 		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount("1971010100000", 0, 100, 100));
 	}
-=======
-
 }
