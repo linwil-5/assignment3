@@ -20,8 +20,24 @@ import ltu.CalendarFactory;
 public class PaymentTest
 {
 
+<<<<<<< HEAD
+=======
+    @Test	// Test if person with 0 income can get full load if all other is correct
+    public void test_zero_income()	throws IOException	//ID: 301
+    {
+		ICalendar calend = CalendarFactory.getCalendar();
+		PaymentImpl payment = new PaymentImpl(calend);			
+		
+		int Expected_Full_Loan = (7088 + 2816);
+
+		// The student is under 47 years of age and has 100% study and completion rate and 0 income.
+		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
+	}
+
+	
+>>>>>>> 6a07d101740dc2f26da123f3130cef1993746b54
 	@Test	// [ID: 101] The student must be at least 20 years old to receive subsidiary and student loans.
-	public void testIfUnder20YearsOld() throws IOException //ID: 101
+	public void test_Under_20_Years_Old() throws IOException //ID: 101
 	{
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
@@ -30,8 +46,9 @@ public class PaymentTest
 		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount("19980101-0000", 0, 100, 100));
 	}
 
+	
 	@Test	// [ID: 102] The student may receive subsidiary until the year they turn 56.
-	public void testIf56YearsOld() throws IOException //ID: 102
+	public void test_56_Years_Old() throws IOException //ID: 102
 	{
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
@@ -40,8 +57,14 @@ public class PaymentTest
 		assertEquals(Expected_Zero, payment.getMonthlyAmount("19600101-0000", 0, 100, 100));
 	}
 
+<<<<<<< HEAD
 	@Test	// The student may not receive any student loans from the year they turn 47.
 	public void testIf47YearsOld() throws IOException //ID: 103
+=======
+
+	@Test
+	public void test_47_Years_Old() throws IOException //ID: 103
+>>>>>>> 6a07d101740dc2f26da123f3130cef1993746b54
 	{
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
