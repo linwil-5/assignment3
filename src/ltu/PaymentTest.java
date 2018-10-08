@@ -79,7 +79,7 @@ public class PaymentTest
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Half_Subsidary = (2816/2);
+		int Expected_Half_Subsidary = (2816);
 		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 20, 100));
 	}
 
@@ -92,6 +92,26 @@ public class PaymentTest
 		int Expected_Full_Subsidary = (2816);
 		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
-=======
->>>>>>> be8b4fe2ca92182d5d48177d777640b19f09da0c
+
+		// 	[ID: 301] A student who is studying full time or more is permitted to earn a maximum of 85 813SEK per 
+@Test	//	year in order to receive any subsidiary or student loans.
+public void test_maximum_income_per_year() throws IOException //ID: 301
+{
+	ICalendar calend = CalendarFactory.getCalendar();
+	PaymentImpl payment = new PaymentImpl(calend);			
+		
+	int Expected_Full_Money = (7088 + 2816);
+	assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 85813, 100, 100));
+}
+		// [ID: 302] A student who is studying less than full time is allowed to earn a maximum of 128 722SEK per 
+@Test	//year in order to receive any subsidiary or student loans.
+public void test_if_studying_less_than_full_time() throws IOException //ID: 302
+{
+	ICalendar calend = CalendarFactory.getCalendar();
+	PaymentImpl payment = new PaymentImpl(calend);			
+		
+	int Expected_Less_Than_Full_Money = (3564 + 1396);
+	assertEquals(Expected_Less_Than_Full_Money, payment.getMonthlyAmount("19951124-0000", 128722, 50, 100));
+}
+	
 }
