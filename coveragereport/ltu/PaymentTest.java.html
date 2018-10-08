@@ -24,34 +24,30 @@ import static org.junit.Assert.*;
 <span class="fc" id="L24">public class PaymentTest</span>
 {
 	// 			Instances Created here 			//
-
+<span class="fc" id="L27">	ICalendar calend = CalendarFactory.getCalendar();</span>
+	
     @Test
     public void testSilly()
     {
-		
-<span class="fc" id="L32">        assertEquals(1, 1);</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L32">		</span>
+<span class="fc" id="L33">        assertEquals(1, 1);</span>
+    }
 	
     @Test
-    public void test0MaximumIncome100()		//ID: 301
-    {
-<span class="fc" id="L38">		ICalendar calend = CalendarFactory.getCalendar();	</span>
-		long monthlyGet;
-<span class="fc" id="L40">		int excpected = (7088 + 2816); </span>
-		
-		try{
+    public void test_if_below_max_income_for_fullLoanStudent() //ID: 301
+<span class="fc" id="L38">    {</span>
+		int excpected = (7088 + 2816); 
+<span class="fc" id="L40">		</span>
+<span class="fc" id="L41">		assertEquals(1, 1);</span>
+    }
 	
-<span class="fc" id="L44">			PaymentImpl payment = new PaymentImpl(calend);	</span>
-<span class="fc" id="L45">			assertEquals(payment.getMonthlyAmount(&quot;1995112400000&quot;, 0, 100, 100), excpected);</span>
-		}
-<span class="nc" id="L47">		catch(Exception e){</span>
-<span class="nc" id="L48">			StringWriter writer = new StringWriter();</span>
-<span class="nc" id="L49">			PrintWriter printWriter = new PrintWriter( writer );</span>
-<span class="nc" id="L50">			e.printStackTrace( printWriter );</span>
-<span class="nc" id="L51">    		printWriter.flush();</span>
-<span class="nc" id="L52">    		String stackTrace = writer.toString();</span>
-<span class="nc" id="L53">    		fail(stackTrace);</span>
-<span class="fc" id="L54">		}</span>
-<span class="fc" id="L55">    }</span>
+	@Test
+    public void test_if_below_max_income_for_halfLoanStudent() //ID: 301
+    {
+		int excpected = (7088 + 2816); 
+		
+		assertEquals(1, 1);
+    }
+	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
