@@ -26,8 +26,9 @@ public class PaymentTest
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Full_Loan = (7088 + 2816);
+		int Expected_Full_Loan = (7888 + 2816);
 		
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("1995112400000", 0, 100, 100));
+
 	}
 }
