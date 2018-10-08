@@ -20,16 +20,21 @@ import ltu.CalendarFactory;
 public class PaymentTest
 {
 
-    @Test
-    public void test0MaximumIncome100()	throws IOException	//ID: 301
+    @Test	// Test if person with 0 income can get full load if all other is correct
+    public void test_zero_income()	throws IOException	//ID: 301
     {
 		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Loan = (7088 + 2816);
+<<<<<<< HEAD
 		// The student is under 47 years of age and has 100% study and completion rate and 0 income.
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("1995112400000", 0, 100, 100));
+=======
+>>>>>>> c32edcfcb1c5a87ed34e6982f3301fe6412cea85
 
+		
+		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("1995112400000", 0, 100, 100));
 	}
 
 	@Test
