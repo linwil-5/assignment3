@@ -33,12 +33,12 @@ public class PaymentTest
 	
 	
 	@Test	// [ID: 102] The student may receive subsidiary until the year they turn 56.
-	public void test_56_Years_Old() throws IOException //ID: 102
+	public void test_above_56_Years_Old() throws IOException //ID: 102
 	{		
 		PaymentImpl payment = new PaymentImpl(calend);
 			
-		int Expected_Zero = (0);
-		assertEquals(Expected_Zero, payment.getMonthlyAmount("19610101-0000", 0, 100, 100));
+		int Expected_Zero_Subsidiary = (0);
+		assertEquals(Expected_Zero_Subsidiary, payment.getMonthlyAmount("19610101-0000", 0, 100, 100));
 	}
 
 
@@ -56,8 +56,8 @@ public class PaymentTest
 	{
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
-		int Expected_Subsidary = (3564 + 1396);
-		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 50, 100));
+		int Expected_Zero_Subsidiary = (0);
+		assertEquals(Expected_Zero_Subsidiary, payment.getMonthlyAmount("19951124-0000", 0, 49, 100));
 	}
 	
 	
@@ -85,7 +85,6 @@ public class PaymentTest
 	@Test	//	year in order to receive any subsidiary or student loans.
 	public void test_maximum_income_per_year() throws IOException //ID: 301
 	{
-		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Money = (7088 + 2816);
@@ -95,7 +94,6 @@ public class PaymentTest
 	@Test	//year in order to receive any subsidiary or student loans.
 	public void test_if_studying_less_than_full_time() throws IOException //ID: 302
 	{
-		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Less_Than_Full_Money = (3564 + 1396);
@@ -107,10 +105,65 @@ public class PaymentTest
 	@Test	// subsidiary or student loans.
 	public void test_if_student_has_half_completion() throws IOException //ID: 401
 	{
-		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Money = (7088 + 2816);
 		assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 0, 100, 50));
 	}
+	
+			// [ID: 501] When and amount paid requirements Full time students are entitled to:
+	@Test	// Student loan: 7088 SEK / month
+	public void test_if_full_time_gets_full_loan()
+	{
+		fail("Not done yet");
+	}
+	
+			// [ID: 502] When and amount paid requirements Full time students are entitled to:
+	@Test	// Subsidiary: 2816 SEK / month
+	public void test_if_full_time_gets_full_subsidiary()
+	{
+		fail("Not done yet");
+	}
+	
+			// [ID: 503] When and amount paid requirements Less than full time students are entitled to:
+	@Test	// Student loan: 3564 SEK / month
+	public void test_if__less_than_full_time_gets_less_than_full_loan()
+	{
+		fail("Not done yet");
+	}
+	
+			// [ID: 504] When and amount paid requirements Less than full time students are entitled to:
+	@Test	// Subsidiary: 1396 SEK / month
+	public void test_if__less_than_full_time_gets_less_than_full_subsidiary()
+	{
+		fail("Not done yet");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
