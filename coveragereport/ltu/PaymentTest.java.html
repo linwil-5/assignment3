@@ -24,7 +24,10 @@ import static org.junit.Assert.*;
 <span class="fc" id="L24">public class PaymentTest</span>
 {
 	// 			Instances Created here 			//
+<<<<<<< HEAD
 <span class="fc" id="L27">	ICalendar calend = CalendarFactory.getCalendar();</span>
+=======
+>>>>>>> 640abfb3462a3cc2246f1335dd8fa6eecfafd306
 	
     @Test
     public void testSilly()
@@ -34,6 +37,7 @@ import static org.junit.Assert.*;
     }
 	
     @Test
+<<<<<<< HEAD
     public void test_if_below_max_income_for_fullLoanStudent() //ID: 301
 <span class="fc" id="L38">    {</span>
 		int excpected = (7088 + 2816); 
@@ -45,9 +49,32 @@ import static org.junit.Assert.*;
     public void test_if_below_max_income_for_halfLoanStudent() //ID: 301
     {
 		int excpected = (7088 + 2816); 
+=======
+    public void test_Max_Income_FullLoan()		//ID: 301
+    {
+<span class="fc" id="L38">		ICalendar calend = CalendarFactory.getCalendar();	</span>
+		long monthlyGet;
+<span class="fc" id="L40">		int shouldBe = (7088 + 2816); </span>
+>>>>>>> 640abfb3462a3cc2246f1335dd8fa6eecfafd306
 		
 		assertEquals(1, 1);
     }
 	
+<<<<<<< HEAD
+=======
+<span class="fc" id="L44">			PaymentImpl payment = new PaymentImpl(calend);	</span>
+<span class="fc" id="L45">			monthlyGet = (long) payment.getMonthlyAmount(&quot;1995112400000&quot;, 0, 100, 100);</span>
+<span class="fc" id="L46">        	assertEquals(monthlyGet, shouldBe);</span>
+		}
+<span class="nc" id="L48">		catch(Exception e){</span>
+<span class="nc" id="L49">			StringWriter writer = new StringWriter();</span>
+<span class="nc" id="L50">    		PrintWriter printWriter = new PrintWriter( writer );</span>
+<span class="nc" id="L51">    		e.printStackTrace( printWriter );</span>
+<span class="nc" id="L52">    		printWriter.flush();</span>
+<span class="nc" id="L53">    		String stackTrace = writer.toString();</span>
+<span class="nc" id="L54">    		fail(stackTrace);</span>
+<span class="fc" id="L55">		}</span>
+<span class="fc" id="L56">    }</span>
+>>>>>>> 640abfb3462a3cc2246f1335dd8fa6eecfafd306
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
