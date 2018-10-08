@@ -28,7 +28,7 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);
 
 		int Expected_Zero_Loan = (0);
-		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount("19980101-0000", 0, 100, 100));
+		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount("19990101-0000", 0, 100, 100));
 	}
 	
 	
@@ -38,7 +38,7 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);
 			
 		int Expected_Zero = (0);
-		assertEquals(Expected_Zero, payment.getMonthlyAmount("19600101-0000", 0, 100, 100));
+		assertEquals(Expected_Zero, payment.getMonthlyAmount("19610101-0000", 0, 100, 100));
 	}
 
 
@@ -48,9 +48,18 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);
 	
 		int Expected_Subsidary = (2816);
-		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19690101-0000", 0, 100, 100));
+		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19710101-0000", 0, 100, 100));
 	}
 
+	@Test	// Test if person with 0 income can get full load if all other is correct
+    public void test_zero_income()	throws IOException	//ID: 301
+    {
+		ICalendar calend = CalendarFactory.getCalendar();
+		PaymentImpl payment = new PaymentImpl(calend);			
+		
+		int Expected_Full_Loan = (7088 + 2816);
+		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
+	}
 	
 	@Test	// [ID: 201] The student must be studying at least half time to receive any subsidiary.
 	public void test_studies_half_time() throws IOException //ID: 201
