@@ -36,7 +36,6 @@ public class PaymentTest
 	public void test_56_Years_Old() throws IOException //ID: 102
 	{		
 		PaymentImpl payment = new PaymentImpl(calend);
-
 			
 		int Expected_Zero = (0);
 		assertEquals(Expected_Zero, payment.getMonthlyAmount("19600101-0000", 0, 100, 100));
@@ -47,12 +46,11 @@ public class PaymentTest
 	public void test_47_Years_Old() throws IOException //ID: 103
 	{	
 		PaymentImpl payment = new PaymentImpl(calend);
-
+	
 		int Expected_Subsidary = (2816);
 		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19690101-0000", 0, 100, 100));
 	}
 
-	
 	@Test	// Test if person with 0 income can get full load if all other is correct
     public void test_zero_income()	throws IOException	//ID: 301
     {
@@ -62,7 +60,6 @@ public class PaymentTest
 		int Expected_Full_Loan = (7088 + 2816);
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
-	
 	
 	@Test	// [ID: 201] The student must be studying at least half time to receive any subsidiary.
 	public void test_studies_half_time() throws IOException //ID: 201
@@ -97,31 +94,32 @@ public class PaymentTest
 	@Test	//	year in order to receive any subsidiary or student loans.
 	public void test_maximum_income_per_year() throws IOException //ID: 301
 	{
+		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Money = (7088 + 2816);
 		assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 85813, 100, 100));
 	}
-	
 			// [ID: 302] A student who is studying less than full time is allowed to earn a maximum of 128 722SEK per 
 	@Test	//year in order to receive any subsidiary or student loans.
 	public void test_if_studying_less_than_full_time() throws IOException //ID: 302
 	{
+		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Less_Than_Full_Money = (3564 + 1396);
 		assertEquals(Expected_Less_Than_Full_Money, payment.getMonthlyAmount("19951124-0000", 128722, 50, 100));
 	}
 	
+
 			// [ID: 401] A student must have completed at least 50% of previous studies in order to receive any 
 	@Test	// subsidiary or student loans.
 	public void test_if_student_has_half_completion() throws IOException //ID: 401
 	{
+		ICalendar calend = CalendarFactory.getCalendar();
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Money = (7088 + 2816);
 		assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 0, 100, 50));
 	}
 }
-
-
