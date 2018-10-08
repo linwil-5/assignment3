@@ -112,13 +112,3 @@ public void test_if_studying_less_than_full_time() throws IOException //ID: 302
 	int Expected_Less_Than_Full_Money = (3564 + 1396);
 	assertEquals(Expected_Less_Than_Full_Money, payment.getMonthlyAmount("19951124-0000", 128722, 50, 100));
 }
-	
-	@Test	//ID: [301] Test if person with 0 income can get full load if all other is correct
-    public void test_zero_income()	throws IOException	//ID: 301
-    {	
-		PaymentImpl payment = new PaymentImpl(calend);
-
-		int Expected_Full_Loan = (7088 + 2816);
-		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
-	}
-}
