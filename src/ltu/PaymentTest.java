@@ -60,5 +60,33 @@ public class PaymentTest
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
 	
+	@Test	// [ID: 201] The student must be studying at least half time to receive any subsidiary.
+	public void test_studies_half_time() throws IOException //ID: 201
+	{
+		ICalendar calend = CalendarFactory.getCalendar();
+		PaymentImpl payment = new PaymentImpl(calend);			
+		
+		int Expected_Subsidary = (2816);
+		assertEquals(Expected_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 50, 100));
+	}
+	
+	@Test	// [ID: 202] A student studying less than full time is entitled to 50% subsidiary.
+	public void test_studies_less_than_full_time() throws IOException //ID: 202
+	{
+		ICalendar calend = CalendarFactory.getCalendar();
+		PaymentImpl payment = new PaymentImpl(calend);			
+		
+		int Expected_Half_Subsidary = (2816/2);
+		assertEquals(Expected_Half_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 20, 100));
+	}
 
+	@Test	// [ID: 203] A student studying full time is entitled to 100% subsidiary.
+	public void test_studies_full_time() throws IOException //ID: 203
+	{
+		ICalendar calend = CalendarFactory.getCalendar();
+		PaymentImpl payment = new PaymentImpl(calend);			
+		
+		int Expected_Full_Subsidary = (2816);
+		assertEquals(Expected_Full_Subsidary, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
+	}
 }

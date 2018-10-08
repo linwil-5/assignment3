@@ -59,6 +59,18 @@ import ltu.CalendarFactory;
 <span class="fc" id="L59">		int Expected_Full_Loan = (7088 + 2816);</span>
 <span class="fc" id="L60">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 100, 100));</span>
 <span class="fc" id="L61">	}</span>
+	
+	@Test	// [ID: 201] The student must be studying at least half time to receive any subsidiary.
+	public void test_studies_half_time() throws IOException //ID: 201
+	{
+<span class="fc" id="L66">		ICalendar calend = CalendarFactory.getCalendar();</span>
+<span class="fc" id="L67">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+		
+<span class="fc" id="L69">		int Expected_Full_Loan = (2816);</span>
+<span class="nc" id="L70">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 50, 100));</span>
+<span class="nc" id="L71">	}</span>
+	// [ID: 202] A student studying less than full time is entitled to 50% subsidiary.
+// [ID: 203] A student studying full time is entitled to 100% subsidiary.
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
