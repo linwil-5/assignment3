@@ -111,6 +111,7 @@ public class PaymentTest
 		PaymentImpl payment = new PaymentImpl(calend);			
 		
 		int Expected_Full_Money = (7088 + 2816);
-		assertEquals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 0, 100, 50));
+		assert
+		Equals(Expected_Full_Money, payment.getMonthlyAmount("19951124-0000", 0, 100, 50));
 	}
 }
