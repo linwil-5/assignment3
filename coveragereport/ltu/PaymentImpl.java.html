@@ -75,9 +75,9 @@ public class PaymentImpl implements IPayment
     public int getMonthlyAmount(String personId, int income, int studyRate, int completionRatio)
             throws IllegalArgumentException
     {
-<span class="pc bpc" id="L78" title="4 of 8 branches missed.">        if (personId == null || income &lt; 0 || studyRate &lt; 0 || completionRatio &lt; 0)</span>
+<span class="pc bpc" id="L78" title="3 of 8 branches missed.">        if (personId == null || income &lt; 0 || studyRate &lt; 0 || completionRatio &lt; 0)</span>
         {
-<span class="nc" id="L80">            throw new IllegalArgumentException(&quot;Invalid input.&quot;);</span>
+<span class="fc" id="L80">            throw new IllegalArgumentException(&quot;Invalid input.&quot;);</span>
         }
 <span class="fc" id="L82">        int age = getAge(personId);</span>
 <span class="fc" id="L83">        int amount = getLoan(age, income, studyRate, completionRatio);</span>
@@ -103,17 +103,17 @@ public class PaymentImpl implements IPayment
         {
 <span class="nc" id="L104">            return ZERO_LOAN;</span>
         }
-<span class="pc bpc" id="L106" title="2 of 4 branches missed.">        if (studyRate &gt;= 100 &amp;&amp; income &gt; FULLTIME_INCOME)</span>
+<span class="fc bfc" id="L106" title="All 4 branches covered.">        if (studyRate &gt;= 100 &amp;&amp; income &gt; FULLTIME_INCOME)</span>
         {
-<span class="nc" id="L108">            return ZERO_LOAN;</span>
+<span class="fc" id="L108">            return ZERO_LOAN;</span>
         }
-<span class="pc bpc" id="L110" title="3 of 4 branches missed.">        if (studyRate &lt; 100 &amp;&amp; income &gt; PARTTIME_INCOME)</span>
+<span class="fc bfc" id="L110" title="All 4 branches covered.">        if (studyRate &lt; 100 &amp;&amp; income &gt; PARTTIME_INCOME)</span>
         {
-<span class="nc" id="L112">            return ZERO_LOAN;</span>
+<span class="fc" id="L112">            return ZERO_LOAN;</span>
         }
-<span class="pc bpc" id="L114" title="1 of 2 branches missed.">        if (studyRate &lt; 100)</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        if (studyRate &lt; 100)</span>
         {
-<span class="nc" id="L116">            return HALF_LOAN;</span>
+<span class="fc" id="L116">            return HALF_LOAN;</span>
         }
 <span class="fc" id="L118">        return FULL_LOAN;</span>
     }
@@ -124,17 +124,17 @@ public class PaymentImpl implements IPayment
         {
 <span class="nc" id="L125">            return ZERO_SUBSIDY;</span>
         }
-<span class="pc bpc" id="L127" title="2 of 4 branches missed.">        if (studyRate &gt;= 100 &amp;&amp; income &gt; FULLTIME_INCOME)</span>
+<span class="fc bfc" id="L127" title="All 4 branches covered.">        if (studyRate &gt;= 100 &amp;&amp; income &gt; FULLTIME_INCOME)</span>
         {
-<span class="nc" id="L129">            return ZERO_SUBSIDY;</span>
+<span class="fc" id="L129">            return ZERO_SUBSIDY;</span>
         }
-<span class="pc bpc" id="L131" title="3 of 4 branches missed.">        if (studyRate &lt; 100 &amp;&amp; income &gt; PARTTIME_INCOME)</span>
+<span class="fc bfc" id="L131" title="All 4 branches covered.">        if (studyRate &lt; 100 &amp;&amp; income &gt; PARTTIME_INCOME)</span>
         {
-<span class="nc" id="L133">            return ZERO_SUBSIDY;</span>
+<span class="fc" id="L133">            return ZERO_SUBSIDY;</span>
         }
-<span class="pc bpc" id="L135" title="1 of 2 branches missed.">        if (studyRate &lt; 100)</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">        if (studyRate &lt; 100)</span>
         {
-<span class="nc" id="L137">            return HALF_SUBSIDY;</span>
+<span class="fc" id="L137">            return HALF_SUBSIDY;</span>
         }
 <span class="fc" id="L139">        return FULL_SUBSIDY;</span>
     }
