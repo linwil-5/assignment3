@@ -167,11 +167,8 @@ public class PaymentTest
 	public void test_if_loan_or_subsidiary_paid_saturday() throws IOException // [ID: 506]
 	{
 		Calendar calend = Calendar.getInstance();
-		Calendar calend = Calendar.getInstance();
 		calend.set(2016, 1, 3);
 		ICalendar cal = calend.getTime();
-		
-	
 	}
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
