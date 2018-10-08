@@ -59,9 +59,6 @@ public class PaymentTest
 		int Expected_Full_Loan = (7088 + 2816);
 		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount("19951124-0000", 0, 100, 100));
 	}
-<<<<<<< HEAD
-=======
 	
->>>>>>> bdb5133219fb14c4cec4a3a2db3678e7cd149638
 
 }
