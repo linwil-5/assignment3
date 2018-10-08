@@ -20,36 +20,47 @@ import ltu.CalendarFactory;
 <span class="fc" id="L20">public class PaymentTest</span>
 {
 
-    @Test
-    public void test0MaximumIncome100()	throws IOException	//ID: 301
+    @Test	// Test if person with 0 income can get full load if all other is correct
+    public void test_zero_income()	throws IOException	//ID: 301
     {
 <span class="fc" id="L26">		ICalendar calend = CalendarFactory.getCalendar();</span>
 <span class="fc" id="L27">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 		
-<<<<<<< HEAD
-<span class="fc" id="L29">		int Expected_Full_Loan = (7088 + 2816); </span>
-<span class="fc" id="L30">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;1995112400000&quot;, 0, 100, 100));</span>
-<span class="fc" id="L31">	}</span>
-=======
 <span class="fc" id="L29">		int Expected_Full_Loan = (7088 + 2816);</span>
 		// The student is under 47 years of age and has 100% study and completion rate and 0 income.
 <span class="fc" id="L31">		assertEquals(Expected_Full_Loan, payment.getMonthlyAmount(&quot;1995112400000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L32">	}</span>
 
-<span class="fc" id="L33">	}</span>
-<<<<<<< HEAD
+	@Test	// [ID: 101] The student must be at least 20 years old to receive subsidiary and student loans.
+	public void testIfUnder20YearsOld() throws IOException //ID: 101
+	{
+<span class="fc" id="L37">		ICalendar calend = CalendarFactory.getCalendar();</span>
+<span class="fc" id="L38">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+		
+<span class="fc" id="L40">		int Expected_Zero_Loan = (0);</span>
+<span class="nc" id="L41">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1997010100000&quot;, 0, 100, 100));</span>
+<span class="nc" id="L42">	}</span>
 
-	@Test
+	@Test	// [ID: 102] The student may receive subsidiary until the year they turn 56.
+	public void testIf56YearsOld() throws IOException //ID: 102
+	{
+<span class="fc" id="L47">		ICalendar calend = CalendarFactory.getCalendar();</span>
+<span class="fc" id="L48">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+		
+<span class="fc" id="L50">		int Expected_Zero_Loan = (0);</span>
+<span class="fc" id="L51">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1960010100000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L52">	}</span>
+
+	@Test	// The student may not receive any student loans from the year they turn 47.
 	public void testIf47YearsOld() throws IOException //ID: 103
 	{
-<span class="fc" id="L38">		ICalendar calend = CalendarFactory.getCalendar();</span>
-<span class="fc" id="L39">		PaymentImpl payment = new PaymentImpl(calend);			</span>
+<span class="fc" id="L57">		ICalendar calend = CalendarFactory.getCalendar();</span>
+<span class="fc" id="L58">		PaymentImpl payment = new PaymentImpl(calend);			</span>
 		
-<span class="fc" id="L41">		int Expected_Zero_Loan = (2816);</span>
+<span class="fc" id="L60">		int Expected_Zero_Loan = (2816);</span>
 		// The student is 47 years of age and has 100% study and completion rate and 0 income.
-<span class="fc" id="L43">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1971010100000&quot;, 0, 100, 100));</span>
-<span class="fc" id="L44">	}</span>
-=======
->>>>>>> be7db044e36e6714d7aee4776e5dec79ebb932d6
->>>>>>> c32edcfcb1c5a87ed34e6982f3301fe6412cea85
+<span class="fc" id="L62">		assertEquals(Expected_Zero_Loan, payment.getMonthlyAmount(&quot;1969010100000&quot;, 0, 100, 100));</span>
+<span class="fc" id="L63">	}</span>
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
