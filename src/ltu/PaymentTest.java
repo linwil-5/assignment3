@@ -2,11 +2,13 @@ package ltu;
 
 import static org.junit.Assert.*;
 
+import java.util.*;
+import java.text.*;
 
+import java.io.StringReader;
+import static ltu.CalendarFactory.getCalendar;
+import java.util.Calendar;
 import org.junit.Test;
-import java.text.DateFormat;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.PrintWriter;
@@ -18,20 +20,67 @@ import ltu.IPayment;
 import ltu.ICalendar;
 import ltu.CalendarImpl;
 import ltu.CalendarFactory;
+import ltu.CalendarImplJan2016;
+import ltu.CalendarImplFeb2016;
+import ltu.CalendarImplMar2016;
+import ltu.CalendarImplApr2016;
+import ltu.CalendarImplMay2016;
+import ltu.CalendarImplJun2016;
+
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.util.Date;
+
 
 public class PaymentTest
 {
+	
+	
 	ICalendar calend = CalendarFactory.getCalendar();
 
-	public static Date parseDate(String date) {
+	
+	
+	
+	public Date convertDateToString(String date) {
 		try 
 		{
-			return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+			return new SimpleDateFormat("yyyyMMdd").parse(date);
 		} 
 		catch(Exception e)
 		{
 			return null;
 		}
+	}
+	
+	public String convertStringToDate(Date indate)
+	{
+		String dateString = null;
+		SimpleDateFormat sdfr = new SimpleDateFormat("yyyyMMdd");
+		/*you can also use DateFormat reference instead of SimpleDateFormat 
+			* like this: DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+			*/
+		try{
+			dateString = sdfr.format( indate );
+		}catch (Exception ex ){
+			System.out.println(ex);
+		}
+		return dateString;
+	}
+	
+	public String find_which_day(Date indate)
+	{
+	
+		String dateString = null;
+		SimpleDateFormat sdfr = new SimpleDateFormat("EEEE", Locale.ENGLISH);
+		/*you can also use DateFormat reference instead of SimpleDateFormat 
+			* like this: DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+			*/
+		try{
+			dateString = sdfr.format( indate );
+		}catch (Exception ex ){
+			System.out.println(ex);
+		}
+		return dateString;
 	}
 	
 	@Test	// [ID: 101] The student must be at least 20 years old to receive subsidiary and student loans.
@@ -176,20 +225,76 @@ public class PaymentTest
 	
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
-	public void test_if_loan_or_subsidiary_paid_saturday() throws IOException // [ID: 506]
+	public void test_if_loan_or_subsidiary_paid_Jan_2016() throws IOException // [ID: 506]
 	{
-		Date myDate = parseDate("2016-01-2");
+		ICalendar calend = new CalendarImplJan2016(); // Tests for Jan
+		PaymentImpl payment = new PaymentImpl(calend);
+		String payDay_string = payment.getNextPaymentDay();
 		
-		System.out.println("Your lucky day is: " + myDate);
 		
+		System.out.println("Payday Jan is: " + " payDay_string " + find_which_day(convertDateToString(payDay_string)));
+		assertEquals("Friday", find_which_day(convertDateToString(payDay_string)));	
+	}
+	
+	
+	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
+	public void test_if_loan_or_subsidiary_paid_Feb_2016() throws IOException // [ID: 506]
+	{
+		ICalendar calend = new CalendarImplFeb2016(); // Tests for Feb
+		PaymentImpl payment = new PaymentImpl(calend);
+		String payDay_string = payment.getNextPaymentDay();
 		
+		System.out.println("Payday Feb is: " + " payDay_string " + find_which_day(convertDateToString(payDay_string)));
+		assertEquals("Monday", find_which_day(convertDateToString(payDay_string)));	
+	}
+	
+	
+	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
+	public void test_if_loan_or_subsidiary_paid_Mar_2016() throws IOException // [ID: 506]
+	{
+		ICalendar calend = new CalendarImplMar2016(); // Tests for Mar
+		PaymentImpl payment = new PaymentImpl(calend);
+		String payDay_string = payment.getNextPaymentDay();
+		
+		System.out.println("Payday Mar is: " + " payDay_string " + find_which_day(convertDateToString(payDay_string)));
+		
+		assertEquals("Thursday", find_which_day(convertDateToString(payDay_string)));	
+	}
+	
+	
+	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
+	public void test_if_loan_or_subsidiary_paid_Apr_2016() throws IOException // [ID: 506]
+	{
+		ICalendar calend = new CalendarImplApr2016(); // Tests for Apr
+		PaymentImpl payment = new PaymentImpl(calend);
+		String payDay_string = payment.getNextPaymentDay();
+		
+		System.out.println("Payday Apr is: " + " payDay_string " + find_which_day(convertDateToString(payDay_string)));
+		assertEquals("Friday", find_which_day(convertDateToString(payDay_string)));	
 	}
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
-	public void test_if_loan_or_subsidiary_paid_sunday() throws IOException // [ID: 506]
+	public void test_if_loan_or_subsidiary_paid_May_2016() throws IOException // [ID: 506]
 	{
-		fail("not done yet");
+		ICalendar calend = new CalendarImplMay2016(); // Tests for May
+		PaymentImpl payment = new PaymentImpl(calend);
+		String payDay_string = payment.getNextPaymentDay();
+		
+		System.out.println("Payday May is: " + " payDay_string " + find_which_day(convertDateToString(payDay_string)));
+		assertEquals("Tuesday", find_which_day(convertDateToString(payDay_string)));	
 	}
 	
+	
+	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
+	public void test_if_loan_or_subsidiary_paid_Jun_2016() throws IOException // [ID: 506]
+	{
+		ICalendar calend = new CalendarImplJun2016(); // Tests for Jun
+		PaymentImpl payment = new PaymentImpl(calend);
+		String payDay_string = payment.getNextPaymentDay();
+		
+		System.out.println("Payday Jun is: " + " payDay_string " + find_which_day(convertDateToString(payDay_string)));
+		assertEquals("Thursday", find_which_day(convertDateToString(payDay_string)));	
+	}
+
 	
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalendarImplJun2016.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">.</a> &gt; <a href="index.source.html" class="el_package">ltu</a> &gt; <span class="el_source">CalendarImplJun2016.java</span></div><h1>CalendarImplJun2016.java</h1><pre class="source lang-java linenums">package ltu;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import java.util.*;
+import java.text.*;
+
+import java.io.StringReader;
+import static ltu.CalendarFactory.getCalendar;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Properties;
+import ltu.PaymentImpl;
+import ltu.Main;
+import ltu.IPayment;
+import ltu.ICalendar;
+import ltu.CalendarImpl;
+import ltu.CalendarFactory;
+
+<span class="fc" id="L27">public class CalendarImplJun2016 implements ICalendar</span>
+{
+	public Date convertDateToString(String date) {
+		try 
+		{
+<span class="fc" id="L32">			return new SimpleDateFormat(&quot;yyyyMMdd&quot;).parse(date);</span>
+		} 
+<span class="nc" id="L34">		catch(Exception e)</span>
+		{
+<span class="nc" id="L36">			return null;</span>
+		}
+	}
+	
+	public String convertStringToDate(Date indate)
+	{
+<span class="nc" id="L42">		String dateString = null;</span>
+<span class="nc" id="L43">		SimpleDateFormat sdfr = new SimpleDateFormat(&quot;yyyyMMdd&quot;);</span>
+		/*you can also use DateFormat reference instead of SimpleDateFormat 
+			* like this: DateFormat df = new SimpleDateFormat(&quot;dd/MMM/yyyy&quot;);
+			*/
+		try{
+<span class="nc" id="L48">			dateString = sdfr.format( indate );</span>
+<span class="nc" id="L49">		}catch (Exception ex ){</span>
+<span class="nc" id="L50">			System.out.println(ex);</span>
+<span class="nc" id="L51">		}</span>
+<span class="nc" id="L52">		return dateString;</span>
+	}
+	
+	@Override
+	public Date getDate() {
+<span class="fc" id="L57">		Calendar cal = Calendar.getInstance();</span>
+<span class="fc" id="L58">		cal.setTime(convertDateToString(&quot;20160606&quot;));</span>
+<span class="fc" id="L59">		return cal.getTime();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

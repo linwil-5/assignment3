@@ -10,4 +10,12 @@ public class CalendarImpl implements ICalendar
 		Calendar cal = Calendar.getInstance();
 		return cal.getTime();
 	}
+	
+	public Date getDate(Calendar calender)
+	{
+		calender = Calendar.getInstance();
+		return calender.getTime();
+		
+	}
+	
 }
