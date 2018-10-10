@@ -220,7 +220,20 @@ public class PaymentTest
 	@Test // [ID: 505] A person who is entitled to receive a student loan will always receive the full amount.	
 	public void test_if_entitled_student_receives_full_amount() throws IOException // [ID: 505]
 	{
-		fail("not done yet");
+		PaymentImpl payment = new PaymentImpl(calend);	
+		
+		int Expected_full_amount = (3564  + 1396);		
+		assertEquals(Expected_full_amount, (payment.getMonthlyAmount("19951124-0000", 0, 99, 100)));
+	}
+	
+	@Test // [ID: 505] A person who is entitled to receive a student loan will always receive the full amount.	
+	public void test_if_entitled_student_receives_less_full_amount() throws IOException // [ID: 505]
+	{
+		PaymentImpl payment = new PaymentImpl(calend);
+		
+		int Expected_lessfull_amount = (3564  + 1396);	
+		assertEquals(Expected_lessfull_amount, (payment.getMonthlyAmount("19951124-0000", 0, 99, 100)));
+		
 	}
 	
 	

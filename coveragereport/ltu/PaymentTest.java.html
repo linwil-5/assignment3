@@ -220,81 +220,94 @@ import java.util.Date;
 	@Test // [ID: 505] A person who is entitled to receive a student loan will always receive the full amount.	
 	public void test_if_entitled_student_receives_full_amount() throws IOException // [ID: 505]
 	{
-<span class="nc" id="L223">		fail(&quot;not done yet&quot;);</span>
-<span class="nc" id="L224">	}</span>
+<span class="fc" id="L223">		PaymentImpl payment = new PaymentImpl(calend);	</span>
+		
+<span class="fc" id="L225">		int Expected_full_amount = (3564  + 1396);		</span>
+<span class="fc" id="L226">		assertEquals(Expected_full_amount, (payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 99, 100)));</span>
+<span class="fc" id="L227">	}</span>
+	
+	@Test // [ID: 505] A person who is entitled to receive a student loan will always receive the full amount.	
+	public void test_if_entitled_student_receives_less_full_amount() throws IOException // [ID: 505]
+	{
+<span class="fc" id="L232">		PaymentImpl payment = new PaymentImpl(calend);</span>
+		
+<span class="fc" id="L234">		int Expected_lessfull_amount = (3564  + 1396);	</span>
+<span class="fc" id="L235">		assertEquals(Expected_lessfull_amount, (payment.getMonthlyAmount(&quot;19951124-0000&quot;, 0, 99, 100)));</span>
+		
+<span class="fc" id="L237">	}</span>
 	
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
 	public void test_if_loan_or_subsidiary_paid_Jan_2016() throws IOException // [ID: 506]
 	{
-<span class="fc" id="L230">		ICalendar calend = new CalendarImplJan2016(); // Tests for Jan</span>
-<span class="fc" id="L231">		PaymentImpl payment = new PaymentImpl(calend);</span>
-<span class="fc" id="L232">		String payDay_string = payment.getNextPaymentDay();</span>
+<span class="fc" id="L243">		ICalendar calend = new CalendarImplJan2016(); // Tests for Jan</span>
+<span class="fc" id="L244">		PaymentImpl payment = new PaymentImpl(calend);</span>
+<span class="fc" id="L245">		String payDay_string = payment.getNextPaymentDay();</span>
 		
 		
-<span class="fc" id="L235">		System.out.println(&quot;Payday Jan is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
-<span class="fc" id="L236">		assertEquals(&quot;Friday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
-<span class="fc" id="L237">	}</span>
+<span class="fc" id="L248">		System.out.println(&quot;Payday Jan is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
+<span class="fc" id="L249">		assertEquals(&quot;Friday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
+<span class="fc" id="L250">	}</span>
 	
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
 	public void test_if_loan_or_subsidiary_paid_Feb_2016() throws IOException // [ID: 506]
 	{
-<span class="fc" id="L243">		ICalendar calend = new CalendarImplFeb2016(); // Tests for Feb</span>
-<span class="fc" id="L244">		PaymentImpl payment = new PaymentImpl(calend);</span>
-<span class="fc" id="L245">		String payDay_string = payment.getNextPaymentDay();</span>
+<span class="fc" id="L256">		ICalendar calend = new CalendarImplFeb2016(); // Tests for Feb</span>
+<span class="fc" id="L257">		PaymentImpl payment = new PaymentImpl(calend);</span>
+<span class="fc" id="L258">		String payDay_string = payment.getNextPaymentDay();</span>
 		
-<span class="fc" id="L247">		System.out.println(&quot;Payday Feb is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
-<span class="fc" id="L248">		assertEquals(&quot;Monday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
-<span class="fc" id="L249">	}</span>
+<span class="fc" id="L260">		System.out.println(&quot;Payday Feb is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
+<span class="fc" id="L261">		assertEquals(&quot;Monday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
+<span class="fc" id="L262">	}</span>
 	
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
 	public void test_if_loan_or_subsidiary_paid_Mar_2016() throws IOException // [ID: 506]
 	{
-<span class="fc" id="L255">		ICalendar calend = new CalendarImplMar2016(); // Tests for Mar</span>
-<span class="fc" id="L256">		PaymentImpl payment = new PaymentImpl(calend);</span>
-<span class="fc" id="L257">		String payDay_string = payment.getNextPaymentDay();</span>
+<span class="fc" id="L268">		ICalendar calend = new CalendarImplMar2016(); // Tests for Mar</span>
+<span class="fc" id="L269">		PaymentImpl payment = new PaymentImpl(calend);</span>
+<span class="fc" id="L270">		String payDay_string = payment.getNextPaymentDay();</span>
 		
-<span class="fc" id="L259">		System.out.println(&quot;Payday Mar is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
+<span class="fc" id="L272">		System.out.println(&quot;Payday Mar is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
 		
-<span class="fc" id="L261">		assertEquals(&quot;Thursday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
-<span class="fc" id="L262">	}</span>
+<span class="fc" id="L274">		assertEquals(&quot;Thursday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
+<span class="fc" id="L275">	}</span>
 	
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
 	public void test_if_loan_or_subsidiary_paid_Apr_2016() throws IOException // [ID: 506]
 	{
-<span class="fc" id="L268">		ICalendar calend = new CalendarImplApr2016(); // Tests for Apr</span>
-<span class="fc" id="L269">		PaymentImpl payment = new PaymentImpl(calend);</span>
-<span class="fc" id="L270">		String payDay_string = payment.getNextPaymentDay();</span>
+<span class="fc" id="L281">		ICalendar calend = new CalendarImplApr2016(); // Tests for Apr</span>
+<span class="fc" id="L282">		PaymentImpl payment = new PaymentImpl(calend);</span>
+<span class="fc" id="L283">		String payDay_string = payment.getNextPaymentDay();</span>
 		
-<span class="fc" id="L272">		System.out.println(&quot;Payday Apr is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
-<span class="fc" id="L273">		assertEquals(&quot;Friday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
-<span class="fc" id="L274">	}</span>
+<span class="fc" id="L285">		System.out.println(&quot;Payday Apr is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
+<span class="fc" id="L286">		assertEquals(&quot;Friday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
+<span class="fc" id="L287">	}</span>
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
 	public void test_if_loan_or_subsidiary_paid_May_2016() throws IOException // [ID: 506]
 	{
-<span class="fc" id="L279">		ICalendar calend = new CalendarImplMay2016(); // Tests for May</span>
-<span class="fc" id="L280">		PaymentImpl payment = new PaymentImpl(calend);</span>
-<span class="fc" id="L281">		String payDay_string = payment.getNextPaymentDay();</span>
+<span class="fc" id="L292">		ICalendar calend = new CalendarImplMay2016(); // Tests for May</span>
+<span class="fc" id="L293">		PaymentImpl payment = new PaymentImpl(calend);</span>
+<span class="fc" id="L294">		String payDay_string = payment.getNextPaymentDay();</span>
 		
-<span class="fc" id="L283">		System.out.println(&quot;Payday May is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
-<span class="fc" id="L284">		assertEquals(&quot;Tuesday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
-<span class="fc" id="L285">	}</span>
+<span class="fc" id="L296">		System.out.println(&quot;Payday May is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
+<span class="fc" id="L297">		assertEquals(&quot;Tuesday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
+<span class="fc" id="L298">	}</span>
 	
 	
 	@Test // [ID: 506] Student loans and subsidiary is paid on the last weekday (Monday to Friday) every month.	
 	public void test_if_loan_or_subsidiary_paid_Jun_2016() throws IOException // [ID: 506]
 	{
-<span class="fc" id="L291">		ICalendar calend = new CalendarImplJun2016(); // Tests for Jun</span>
-<span class="fc" id="L292">		PaymentImpl payment = new PaymentImpl(calend);</span>
-<span class="fc" id="L293">		String payDay_string = payment.getNextPaymentDay();</span>
+<span class="fc" id="L304">		ICalendar calend = new CalendarImplJun2016(); // Tests for Jun</span>
+<span class="fc" id="L305">		PaymentImpl payment = new PaymentImpl(calend);</span>
+<span class="fc" id="L306">		String payDay_string = payment.getNextPaymentDay();</span>
 		
-<span class="fc" id="L295">		System.out.println(&quot;Payday Jun is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
-<span class="fc" id="L296">		assertEquals(&quot;Thursday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
-<span class="fc" id="L297">	}</span>
+<span class="fc" id="L308">		System.out.println(&quot;Payday Jun is: &quot; + &quot; payDay_string &quot; + find_which_day(convertDateToString(payDay_string)));</span>
+<span class="fc" id="L309">		assertEquals(&quot;Thursday&quot;, find_which_day(convertDateToString(payDay_string)));	</span>
+<span class="fc" id="L310">	}</span>
 
 	
 }
