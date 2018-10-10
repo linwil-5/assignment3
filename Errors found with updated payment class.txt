@@ -1,0 +1,34 @@
+1) test_studies_less_than_full_time(ltu.PaymentTest)
+java.lang.AssertionError: expected:<1396> but was:<2396>
+
+2) test_if_studying_less_than_full_time(ltu.PaymentTest)
+java.lang.AssertionError: expected:<4960> but was:<5960>
+        at org.junit.Assert.fail(Assert.java:71)
+
+3) test_if_entitled_student_receives_full_amount(ltu.PaymentTest)
+java.lang.AssertionError: expected:<4960> but was:<5960>
+        at org.junit.Assert.fail(Assert.java:71)
+
+4) test_if_loan_or_subsidiary_paid_Feb_2016(ltu.PaymentTest)
+org.junit.ComparisonFailure: expected:<[Mon]day> but was:<[Fri]day>
+        at org.junit.Assert.assertEquals(Assert.java:96)
+
+5) test_if_less_than_full_time_gets_less_than_full_subsidiary(ltu.PaymentTest)
+java.lang.AssertionError: expected:<1396> but was:<2396>
+
+
+6) test_if_less_than_full_time_gets_less_than_full_loan(ltu.PaymentTest)
+java.lang.AssertionError: expected:<3564> but was:<4564>
+        at org.junit.Assert.fail(Assert.java:71)
+
+7) test_if_entitled_student_receives_less_full_amount(ltu.PaymentTest)
+java.lang.AssertionError: expected:<4960> but was:<5960>
+        at org.junit.Assert.fail(Assert.java:71)
+
+8) test_above_56_Years_Old(ltu.PaymentTest)
+java.lang.AssertionError: expected:<0> but was:<2147483647>
+        at org.junit.Assert.fail(Assert.java:71)
+
+9) test_47_Years_Old(ltu.PaymentTest)
+java.lang.AssertionError: expected:<2816> but was:<9904>
+        at org.junit.Assert.fail(Assert.java:71)
