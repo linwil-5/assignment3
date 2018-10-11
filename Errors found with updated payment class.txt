@@ -1,34 +1,71 @@
 1) test_studies_less_than_full_time(ltu.PaymentTest)
 java.lang.AssertionError: expected:<1396> but was:<2396>
 
+
+ 	Error 1 Linked to ID: 504
+
+
+
 2) test_if_studying_less_than_full_time(ltu.PaymentTest)
 java.lang.AssertionError: expected:<4960> but was:<5960>
-        at org.junit.Assert.fail(Assert.java:71)
+
+	Error 2 Linked to ID: 505
+
+
+
 
 3) test_if_entitled_student_receives_full_amount(ltu.PaymentTest)
 java.lang.AssertionError: expected:<4960> but was:<5960>
-        at org.junit.Assert.fail(Assert.java:71)
+
+	Error 3 Linked to ID: 505
+
+
 
 4) test_if_loan_or_subsidiary_paid_Feb_2016(ltu.PaymentTest)
 org.junit.ComparisonFailure: expected:<[Mon]day> but was:<[Fri]day>
-        at org.junit.Assert.assertEquals(Assert.java:96)
+
+
+	Error 4 Linked to ID: 506
+
+
 
 5) test_if_less_than_full_time_gets_less_than_full_subsidiary(ltu.PaymentTest)
 java.lang.AssertionError: expected:<1396> but was:<2396>
 
 
+	Error 5 Linked to ID: 504
+
+
+
 6) test_if_less_than_full_time_gets_less_than_full_loan(ltu.PaymentTest)
 java.lang.AssertionError: expected:<3564> but was:<4564>
-        at org.junit.Assert.fail(Assert.java:71)
+
+
+	Error 6 Linked to ID: 503
+
+
 
 7) test_if_entitled_student_receives_less_full_amount(ltu.PaymentTest)
 java.lang.AssertionError: expected:<4960> but was:<5960>
-        at org.junit.Assert.fail(Assert.java:71)
+
+
+	Error 7 Linked to ID: 505
+
+
 
 8) test_above_56_Years_Old(ltu.PaymentTest)
 java.lang.AssertionError: expected:<0> but was:<2147483647>
-        at org.junit.Assert.fail(Assert.java:71)
+
+
+	Error 8 Linked to ID: ID 102
+
+
 
 9) test_47_Years_Old(ltu.PaymentTest)
 java.lang.AssertionError: expected:<2816> but was:<9904>
-        at org.junit.Assert.fail(Assert.java:71)
+
+	Error 9 Linked to ID: 103
+
+All ID errors
+
+IDs: 102, 103, 503, 504, 505, 506
